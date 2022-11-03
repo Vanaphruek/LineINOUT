@@ -27,23 +27,35 @@
 <script src="https://static.line-scdn.net/liff/edge/versions/2.15.0/sdk.js"></script>
 <script>
     
+    getLocation()
+        var lat, lon
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    lat = position.coords.latitude
+                    lon = position.coords.longitude
+                });
+            }
+        }
+    
+    
     function runApp() {
         liff.getProfile().then(profile => {
             let userId = profile.userId;
             let displayName = profile.displayName;
             let pictureUrl = profile.pictureUrl;
-            let url = "https://script.google.com/macros/s/AKfycbzsER1JER6l6DtZSPtdWmAAsdgAxKvCQ7WmsXfnXHpy9HJeEgjpOWXlf0Bz0UgJonPs/exec?userId=" + userId + "&displayName=" + displayName + "&pictureUrl=" + pictureUrl;
+            let url = "https://script.google.com/macros/s/AKfycbzsER1JER6l6DtZSPtdWmAAsdgAxKvCQ7WmsXfnXHpy9HJeEgjpOWXlf0Bz0UgJonPs/exec?userId=" + userId + "&displayName=" + displayName + "&pictureUrl=" + pictureUrl +"&lat=" + lat + "&lon" +lon;
             document.getElementById("formframe").src = url;
         }).catch(err => console.error(err));
     }
 
- //   liff.init({ liffId: "1657612535-7BL0lrX1" }, () => {
- //       if (liff.isLoggedIn()) {
-  //          runApp();
-  //      } else {
-  //          liff.login();
-  //      }
- //   }, err => console.error(err.code, error.message));
+   liff.init({ liffId: "1657612535-7BL0lrX1" }, () => {
+       if (liff.isLoggedIn()) {
+           runApp();
+        } else {
+            liff.login();
+        }
+   }, err => console.error(err.code, error.message));
 
 </script>
 
