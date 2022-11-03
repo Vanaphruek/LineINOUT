@@ -41,9 +41,13 @@
     
     function runApp() {
         liff.getProfile().then(profile => {
+            getLocation()
+            var lat, lon
             let userId = profile.userId;
             let displayName = profile.displayName;
             let pictureUrl = profile.pictureUrl;
+            let lat = position.coords.latitude
+            let lon = position.coords.longitude
             let url = "https://script.google.com/macros/s/AKfycbzsER1JER6l6DtZSPtdWmAAsdgAxKvCQ7WmsXfnXHpy9HJeEgjpOWXlf0Bz0UgJonPs/exec?userId=" + userId + "&displayName=" + displayName + "&pictureUrl=" + pictureUrl +"&lat=" + lat + "&lon" +lon;
             document.getElementById("formframe").src = url;
         }).catch(err => console.error(err));
