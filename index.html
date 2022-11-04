@@ -49,7 +49,7 @@
             let displayName = profile.displayName;
             let pictureUrl = profile.pictureUrl;
            
-            let url = "https://script.google.com/macros/s/AKfycbzsER1JER6l6DtZSPtdWmAAsdgAxKvCQ7WmsXfnXHpy9HJeEgjpOWXlf0Bz0UgJonPs/exec?userId=" + userId + "&displayName=" + displayName + "&pictureUrl=" + pictureUrl + "&lat=" + lat + "&lon" + lon;
+            let url = "https://script.google.com/macros/s/AKfycbzsER1JER6l6DtZSPtdWmAAsdgAxKvCQ7WmsXfnXHpy9HJeEgjpOWXlf0Bz0UgJonPs/exec?page=timeINOUT"+"&userId=" + userId + "&displayName=" + displayName + "&pictureUrl=" + pictureUrl + "&lat=" + lat + "&lon" + lon;
             document.getElementById("formframe").src = url;
         }).catch(err => console.error(err));
     }
